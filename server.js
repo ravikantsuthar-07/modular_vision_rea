@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import authRoutes from "./Routes/authRoutes.js";
+import sliderRoutes from './Routes/sliderRoutes.js';
 
 dotenv.config();
 
@@ -8,6 +9,7 @@ const app = express();
 
 
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/slider', sliderRoutes);
 
 const PORT = process.env.PORT || 8000;
 

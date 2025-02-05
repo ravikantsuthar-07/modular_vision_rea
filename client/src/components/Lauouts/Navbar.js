@@ -1,17 +1,15 @@
 import Header from './Header';
 import Logo from "../../assets/img/logo.png";
-function Navbar(params) {
+import { Link } from 'react-router-dom';
+function Navbar() {
     return (
 
         <>
             <Header />
-            <nav
-                className="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn"
-                data-wow-delay="0.1s"
-            >
-                <a href="index.html" className="navbar-brand ms-4 ms-lg-0">
+            <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+                <Link to={'/'} className="navbar-brand ms-4 ms-lg-0">
                     <img className="me-3" src={Logo} alt="logo" />
-                </a>
+                </Link>
                 <button
                     type="button"
                     className="navbar-toggler me-4"
@@ -22,29 +20,16 @@ function Navbar(params) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto p-4 p-lg-0">
-                        <div className="nav-item dropdown">
-                            <a
-                                href="#"
-                                className="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >Home</a>
-                            <div className="dropdown-menu border-0 m-0">
-                                <a href="index.html" className="dropdown-item active">Home 01</a>
-                                <a href="index-02.html" className="dropdown-item">Home 02</a>
-                            </div>
+                        <div className="nav-item ">
+                            <Link to={'/'} className="nav-link">Home</Link>
                         </div>
-                        <div className="nav-item dropdown">
-                            <a
-                                href="#"
-                                className="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >About Us</a>
-                            <div className="dropdown-menu border-0 m-0">
-                                <a href="about.html" className="dropdown-item">About 01</a>
-                                <a href="about-02.html" className="dropdown-item">About 02</a>
-                            </div>
+                        <div className="nav-item">
+                            <Link to={'/about'} className="nav-link" >About Us</Link>
                         </div>
-                        <div className="nav-item dropdown">
+                        <div className="nav-item">
+                            <Link to={'/servies'} className="nav-link" >Services</Link>
+                        </div>
+                        {/* <div className="nav-item dropdown">
                             <a
                                 href="#"
                                 className="nav-link dropdown-toggle"
@@ -56,7 +41,8 @@ function Navbar(params) {
                                 >Service Details</a
                                 >
                             </div>
-                        </div>
+                        </div> */}
+
                         <div className="nav-item dropdown">
                             <a
                                 href="#"
@@ -64,35 +50,18 @@ function Navbar(params) {
                                 data-bs-toggle="dropdown"
                             >Projects</a>
                             <div className="dropdown-menu border-0 m-0">
-                                <a href="project.html" className="dropdown-item">Projects 01</a>
-                                <a href="project-02.html" className="dropdown-item">Projects 02</a>
-                                <a href="project-details.html" className="dropdown-item"
-                                >Project Details</a>
+                                <Link to={'/project'} className="dropdown-item">Projects</Link>
+                                {/* <Link to={'/project'} className="dropdown-item">Projects</Link> */}
                             </div>
                         </div>
-                        <div className="nav-item dropdown">
-                            <a
-                                href="#"
-                                className="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >Blogs</a
-                            >
-                            <div className="dropdown-menu border-0 m-0">
-                                <a href="blog.html" className="dropdown-item">Blog</a>
-                                <a href="blog-details.html" className="dropdown-item">Blog Details</a>
-                            </div>
+                        <div className="nav-item ">
+                            <Link to={'/blog'} className="nav-link " >Blogs</Link>
                         </div>
                     </div>
-                    <a
-                        href="contact.html"
-                        className="btn btn-outline-body py-2 px-4"
-                    >Contact</a>
+                    <Link to={'/contact'} className="btn btn-outline-body py-2 px-4" >Contact</Link>
                 </div>
             </nav>
-
         </>
-
-
     );
 }
 
