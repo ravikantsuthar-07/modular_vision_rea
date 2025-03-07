@@ -7,7 +7,7 @@ import ServiceMain from '../components/ServiesMain';
 import Features from '../components/Features';
 import ProjectMain from '../components/ProjectMain';
 import TeamMain from '../components/TeamMain';
-import BlogsMain from '../components/BlogsMain';
+// import BlogsMain from '../components/BlogsMain';
 import Appointment from '../components/Appointment';
 
 const HomePage = () => {
@@ -21,7 +21,7 @@ const HomePage = () => {
             <ProjectMain />
             <TeamMain />
             {/* <Testimonial /> */}
-            <BlogsMain />
+            {/* <BlogsMain /> */}
             <Appointment />
         </Layout>
     )

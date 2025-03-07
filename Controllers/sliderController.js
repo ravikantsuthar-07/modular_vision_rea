@@ -1,7 +1,7 @@
 import DB from '../DB/connection.js';
 export const getUserSliderController = async (req, res) => {
     try {
-        const sql = `SELECT * FROM slider WHERE status = 1`;
+        const sql = `SELECT * FROM slider WHERE status = 'active'`;
         await DB.query(sql, (err, results) => {
             if (err) {
                 return res.status(500).send({
@@ -100,6 +100,34 @@ export const getAdminSliderController = async (req, res) => {
 }
 
 
+export const getSingleAdminSliderController = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const sql = `SELECT * FROM slider WHERE id = ?`;
+        await DB.query(sql, [id], (err, results) => {
+            if (err) {
+                return res.status(500).send({
+                    success: false,
+                    message: 'Error in Getting Single Slider',
+                    err
+                });
+            } else {
+                return res.status(200).send({
+                    success: true,
+                    message: 'Get Slider Successfully',
+                    results
+                });
+            }
+        })
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: 'Error in getting Sliders',
+            error
+        });
+    }
+}
+
 export const updateStatusSliderController = async (req, res) => {
     try {
         const id = req.params.id;
@@ -192,7 +220,22 @@ export const updateSliderController = async (req, res) => {
 export const deleteSliderController = async (req, res) => {
     try {
         const id = req.params.id;
-        
+        const sql = `DELETE FROM slider WHERE id = ?`;
+        await DB.query(sql, [id], (err, results) => {
+            if (err) {
+                return res.status(500).send({
+                    success: false,
+                    message: 'Errror in Deleting Slider',
+                    err
+                });
+            } else{
+                return res.status(200).send({
+                    success: true,
+                    message: 'Slider Deleted SuccesFully',
+                    results
+                });
+            }
+        })
     } catch (error) {
         return res.status(500).send({
             success: false,

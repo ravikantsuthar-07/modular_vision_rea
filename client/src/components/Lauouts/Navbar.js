@@ -27,7 +27,10 @@ function Navbar() {
                             <Link to={'/about'} className="nav-link" >About Us</Link>
                         </div>
                         <div className="nav-item">
-                            <Link to={'/servies'} className="nav-link" >Services</Link>
+                            <Link to={'/services'} className="nav-link" >Services</Link>
+                        </div>
+                        <div className="nav-item">
+                            <Link to={'/projects'} className="nav-link" >Project</Link>
                         </div>
                         {/* <div className="nav-item dropdown">
                             <a
@@ -43,20 +46,10 @@ function Navbar() {
                             </div>
                         </div> */}
 
-                        <div className="nav-item dropdown">
-                            <a
-                                href="#"
-                                className="nav-link dropdown-toggle"
-                                data-bs-toggle="dropdown"
-                            >Projects</a>
-                            <div className="dropdown-menu border-0 m-0">
-                                <Link to={'/project'} className="dropdown-item">Projects</Link>
-                                {/* <Link to={'/project'} className="dropdown-item">Projects</Link> */}
-                            </div>
-                        </div>
-                        <div className="nav-item ">
+
+                        {/* <div className="nav-item ">
                             <Link to={'/blog'} className="nav-link " >Blogs</Link>
-                        </div>
+                        </div> */}
                     </div>
                     <Link to={'/contact'} className="btn btn-outline-body py-2 px-4" >Contact</Link>
                 </div>

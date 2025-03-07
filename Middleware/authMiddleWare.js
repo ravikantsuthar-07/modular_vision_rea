@@ -18,7 +18,7 @@ export const requireSignIn = async (req, res, next) => {
 export const isAdmin = async (req, res, next) => {
     try {
         await DB.query(
-            `SELECT * FROM admins WHERE id = ${req.user.id}`, (err, result) => {
+            `SELECT * FROM auth WHERE id = ${req.user.id}`, (err, result) => {
                 if (err) {
                     return res.status(500).json({
                         success: false,
@@ -26,7 +26,7 @@ export const isAdmin = async (req, res, next) => {
                         err
                     });
                 } else {
-                    if (result[0].role !== 1) {
+                    if (result[0].status !== 1) {
                         return res.status(401).json({
                             success: false,
                             message: 'EnAuthorise User'

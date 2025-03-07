@@ -1,7 +1,10 @@
 import { comparePassword, hashPassword } from '../Helper/authHelper.js';
 import DB from "../DB/connection.js";
+import JWT from "jsonwebtoken";
 export const createAuthController = async (req, res) => {
     try {
+        console.log(req.body);
+        
         const { name, mobile, email, password } = req.body;
         if (!name) {
             return res.status(404).send({
@@ -27,6 +30,8 @@ export const createAuthController = async (req, res) => {
                 message: 'Password is Required'
             });
         }
+console.log("RAVI@@@");
+
         const hashedPassword = await hashPassword(password);
         await DB.query(
             `SELECT email, name From auth WHERE email = '${email}'`, (err, results) => {
@@ -48,8 +53,8 @@ export const createAuthController = async (req, res) => {
             }
         );
 
-        const sql = `INSERT INTO auth (name, eamil, mobile, password) VALUES (?,?,?,?)`;
-        await DB.query(sql, [name, email, mobile, hashedPassword], (err, results) => {
+        const sql = `INSERT INTO auth (name, email, password) VALUES (?,?,?)`;
+        await DB.query(sql, [name, email, hashedPassword], (err, results) => {
             if (err) {
                 return res.status(500).send({
                     success: false,
@@ -89,7 +94,7 @@ export const loginAuthController = async (req, res) => {
             });
         }
 
-        const sql = `SELECT * FROM auth WHERE email = ${email}`
+        const sql = `SELECT * FROM auth WHERE email = '${email}'`
         await DB.query(sql, (err, results) => {
             if (err) {
                 return res.status(500).send({
@@ -113,7 +118,7 @@ export const loginAuthController = async (req, res) => {
         const compare = async (pass, result) => {
             const match = await comparePassword(pass, result[0].password);
             if (match) {
-                const token = await JWT.sign({id: results[0].id }, process.env.JWT_SECRET, {expiresIn: '1d'});
+                const token = await JWT.sign({id: result[0].id }, process.env.JWT_SECRET, {expiresIn: '1d'});
                 return res.status(200).send({
                     success: true,
                     message: 'Login Successfully',
