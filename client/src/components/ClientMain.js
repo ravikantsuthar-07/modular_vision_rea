@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from 'axios';
-const TeamMain = () => {
+const ClientMain = () => {
     const settings = {
         infinite: true,
         speed: 2000,
@@ -89,4 +89,4 @@ useEffect(() => {
     )
 }
 
-export default TeamMain;
+export default ClientMain;
