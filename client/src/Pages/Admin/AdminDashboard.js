@@ -72,6 +72,7 @@ const AdminDashboard = () => {
         countSercice();
         countConatct();
         countAppointment();
+        // eslint-disable-next-line
     }, [])
     return (
         <AdminLayout>
@@ -115,7 +116,7 @@ const AdminDashboard = () => {
                                     <div className="card-body">
                                         <div className="card-title d-flex align-items-start justify-content-between mb-4">
                                             <div className="avatar flex-shrink-0" style={{ fontSize: '90px' }}>
-                                            <i class="fa-sharp fa-solid fa-server"></i>
+                                            <i className="fa-sharp fa-solid fa-server"></i>
                                             </div>
                                         </div>
                                         <p className="mb-1">Srvices</p>
@@ -129,7 +130,7 @@ const AdminDashboard = () => {
                                     <div className="card-body">
                                         <div className="card-title d-flex align-items-start justify-content-between mb-4">
                                             <div className="avatar flex-shrink-0" style={{ fontSize: '90px' }}>
-                                            <i class="fa-sharp-duotone fa-solid fa-list-check"></i>                                            </div>
+                                            <i className="fa-sharp-duotone fa-solid fa-list-check"></i>                                            </div>
 
                                         </div>
                                         <p className="mb-1">Projects</p>

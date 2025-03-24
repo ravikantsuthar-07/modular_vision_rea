@@ -29,6 +29,7 @@ import AdminAddGallery from './Pages/Admin/AdminAddGallery';
 import AdminGallery from './Pages/Admin/AdminGallery';
 import AdminAppointment from './Pages/Admin/AdminAppointment';
 import AdminContact from './Pages/Admin/AdminContact';
+import PageNotFound from './Pages/PageNotFound';
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
         <Route exact path='appointment' element={<AdminAppointment />} />
         <Route exact path='contact' element={<AdminContact />} />
       </Route>
+      <Route exact path='/*' element={<PageNotFound />} />
     </Routes>
   );
 }

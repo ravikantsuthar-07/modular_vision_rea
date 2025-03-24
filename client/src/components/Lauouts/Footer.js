@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';import axios from 'axios';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 function Footer() {
         const [service, setService] = useState([]);
@@ -62,18 +63,18 @@ function Footer() {
                                 <i className="fa fa-envelope txt-primary me-3"></i>info@modularvisionera.com
                             </p>
                             <div className="d-flex pt-2">
-                                <a className="btn btn-square btn-outline-body me-1" href=""
+                                <Link className="btn btn-square btn-outline-body me-1" href=""
                                 ><i className="fab fa-facebook-f"></i
-                                ></a>
-                                <a className="btn btn-square btn-outline-body me-1" href=""
+                                ></Link>
+                                <Link className="btn btn-square btn-outline-body me-1" href=""
                                 ><i className="fab fa-youtube"></i
-                                ></a>
-                                <a className="btn btn-sm-square btn-outline-body me-1" href="">
+                                ></Link>
+                                <Link className="btn btn-sm-square btn-outline-body me-1" href="">
                                     <i className="fa-brands fa-x-twitter"></i>
-                                </a>
-                                <a className="btn btn-square btn-outline-body me-0" href=""
+                                </Link>
+                                <Link className="btn btn-square btn-outline-body me-0" href=""
                                 ><i className="fab fa-linkedin-in"></i
-                                ></a>
+                                ></Link>
                             </div>
                         </div>
                     </div>
