@@ -44,6 +44,34 @@ INSERT INTO `about` VALUES (1,'A Creative Architecture Agency For Your Dream Hom
 UNLOCK TABLES;
 
 --
+-- Table structure for table `appointments`
+--
+
+DROP TABLE IF EXISTS `appointments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `appointments` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `mobile` bigint NOT NULL,
+  `service` int NOT NULL,
+  `message` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `appointments`
+--
+
+LOCK TABLES `appointments` WRITE;
+/*!40000 ALTER TABLE `appointments` DISABLE KEYS */;
+INSERT INTO `appointments` VALUES (1,'ravi','ravi@gmail.com',7887877887,3,'fdsjalkfjds fsdjklfjdslf sdf sdfa dsf sdaf sadf ');
+/*!40000 ALTER TABLE `appointments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `auth`
 --
 
@@ -71,6 +99,59 @@ INSERT INTO `auth` VALUES (1,'Admin','admin@admin.com','$2b$10$WfOqNFTZAFyl22TEf
 UNLOCK TABLES;
 
 --
+-- Table structure for table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `clients` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `image` varchar(50) NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clients`
+--
+
+LOCK TABLES `clients` WRITE;
+/*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+INSERT INTO `clients` VALUES (4,'asdsad','1741439870313about.jpg',1),(5,'asdff','1741439879348about-1.jpg',1),(6,'asdfasdf','1741439889686about-2.jpg',1),(7,'dfdgfdgs','1741439920604carousel-1.jpg',1);
+/*!40000 ALTER TABLE `clients` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contacts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `message` mediumtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacts`
+--
+
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+INSERT INTO `contacts` VALUES (1,'ravi','ravi@gmail.com','ljksdf','lsdjksdf sdaf  f sdaf sdfdsaf sdf sdf');
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `fact`
 --
 
@@ -94,6 +175,31 @@ CREATE TABLE `fact` (
 LOCK TABLES `fact` WRITE;
 /*!40000 ALTER TABLE `fact` DISABLE KEYS */;
 /*!40000 ALTER TABLE `fact` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gallerys`
+--
+
+DROP TABLE IF EXISTS `gallerys`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `gallerys` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `productId` int NOT NULL,
+  `image` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gallerys`
+--
+
+LOCK TABLES `gallerys` WRITE;
+/*!40000 ALTER TABLE `gallerys` DISABLE KEYS */;
+INSERT INTO `gallerys` VALUES (1,1,'1741959538079about.jpg'),(2,1,'1741959645524about-1.jpg');
+/*!40000 ALTER TABLE `gallerys` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -124,7 +230,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (1,'Modern Living Room','Living Room',5,'This project features a sleek and stylish living space designed to offer both comfort and aesthetics. It blends modern elements with timeless appeal, making it perfect for relaxation and socializing.','Residential Interior','2025-01-15','Bikaner, Raj. India','1741327107980project-1.jpg',1);
+INSERT INTO `project` VALUES (1,'Modern Living Room','Living Room',5,'This project features a sleek and stylish living space designed to offer both comfort and aesthetics. It blends modern elements with timeless appeal, making it perfect for relaxation and socializing.','Residential Interior','2025-03-04','Bikaner, Raj. India','1741437231278project-4.jpg',1);
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,4 +302,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-07 12:58:51
+-- Dump completed on 2025-03-24  7:26:00
