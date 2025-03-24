@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import AdminLayout from '../../components/Lauouts/Admin/AdminLayout'
-import { useAuth } from '../../context/auth';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useAuth } from '../../context/auth';
 
-const AdminProjects = () => {
-    const [project, setProject] = useState([]);
+const AdminClients = () => {
+    const [client, setClient] = useState([]);
     const [auth] = useAuth();
     const navigate = useNavigate();
-    const getProject = async () => {
+    const getClients = async () => {
         try {
-            const {data} = await axios.get(`/api/v1/project/getAdmin`, {
+            const { data } = await axios.get(`/api/v1/client/getAdmin`, {
                 headers: {
-                    "Authorization" : auth.token
+                    "Authorization": auth.token
                 }
             });
             if (data?.success) {
-                setProject(data?.results);
+                setClient(data?.results);
             }
         } catch (error) {
-            alert(error?.responce?.data?.message);
+            alert(error?.responce?.data?.message)
         }
     }
 
-    const updateProjectStatus = async (id, status) => {
+    const updateClientStatus = async (id, status) => {
         try {
-            let send;
+            let send
             if (status) {
                 send = 0
             } else {
                 send = 1
             }
-            const {data} = await axios.put(`/api/v1/project/updateStatus/${id}`, {status: send}, {
-                headers:{
+            const { data } = await axios.put(`/api/v1/client/updateStatus/${id}`, { status: send }, {
+                headers: {
                     "Authorization": auth.token
                 }
             });
@@ -45,25 +45,25 @@ const AdminProjects = () => {
         }
     }
 
-    const deleteProject = async (id) => {
+
+    const deleteClient = async (id) => {
         try {
-            const {data} = await axios.delete(`/api/v1/project/delete/${id}`, {
-                headers:{
+            const { data } = await axios.delete(`/api/v1/client/delete/${id}`, {
+                headers: {
                     "Authorization": auth.token
                 }
             });
             if (data?.success) {
                 alert(data?.message);
-                window.location.reload();
+                window.location.reload()
             }
         } catch (error) {
             alert(error?.responce?.data?.message);
         }
-    } 
+    }
 
-    useEffect(()=>{
-        getProject();
-        // eslint-disable-next-line
+    useEffect(() => {
+        getClients()
     }, [])
     return (
         <AdminLayout>
@@ -73,34 +73,26 @@ const AdminProjects = () => {
                         <div className="col-lg-12">
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">Project</h5>
+                                    <h5 className="card-title">Clients</h5>
                                     <table className="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Category</th>
-                                                <th scope="col">Service Name</th>
-                                                <th scope="col">Completion Date</th>
                                                 <th scope="col">Image</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {project?.map((c, i) => (
+                                            {client?.map((c, i) => (
                                                 <tr key={i}>
                                                     <th scope="row">{i + 1}</th>
                                                     <td>{c.name}</td>
-                                                    <td>{c.category}</td>
-                                                    <td>{c.serviceid}</td>
-                                                    <td>{c.complete_date}</td>
-                                                    <td><img src={`/static/projects/${c.image}`} alt='projectImage' width={100} /></td>
+                                                    <td><img src={`/static/clients/${c.image}`} alt='clientImage' width={100} /></td>
                                                     <td>
-                                                        <button type='buttton' className={c.status ? 'btn btn-primary' : 'btn btn-success'} onClick={() => { updateProjectStatus(c.id, c.status) }}>{c.status ? 'Activate' : 'De Activate'}</button>
-                                                        <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/edit_project/${c.id}`)} >Update</button>
-                                                        <button className='btn btn-danger m-2' onClick={() => deleteProject(c.id)}>Delete</button>
-                                                        <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/gallery/${c.id}`)} >Show Image</button>
-                                                        <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/add_gallery/${c.id}`)} >Add Image</button>
+                                                        <button type='buttton' className={c.status ? 'btn btn-primary' : 'btn btn-success'} onClick={() => { updateClientStatus(c.id, c.status) }}>{c.status ? 'Activate' : 'De Activate'}</button>
+                                                        <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/edit_client/${c.id}`)} >Update</button>
+                                                        <button className='btn btn-danger m-2' onClick={() => deleteClient(c.id)}>Delete</button>
                                                     </td>
                                                 </tr>
                                             ))}
@@ -116,4 +108,4 @@ const AdminProjects = () => {
     )
 }
 
-export default AdminProjects
+export default AdminClients

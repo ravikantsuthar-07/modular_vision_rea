@@ -1,4 +1,20 @@
+import { Link } from 'react-router-dom';import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 function Footer() {
+        const [service, setService] = useState([]);
+        const getService = async () => {
+            try {
+                const { data } = await axios.get(`/api/v1/service/getLast`);
+                if (data?.success) {
+                    setService(data?.results);
+                }
+            } catch (error) {
+                alert(error?.responce?.data?.message);
+            }
+        }
+        useEffect(() => {
+            getService();
+        }, [])
     return (
         <section>
             <div
@@ -10,7 +26,7 @@ function Footer() {
                         <div className="col-lg-4 col-md-6">
                             <h3 className="text-light mb-4">About Us</h3>
                             <p className="mb-2 text-light">
-                                Nanointory is a sleek interior design theme that blends
+                                Modular Vision ERA is a sleek interior design theme that blends
                                 creativity and functionality to transform spaces into stunning
                                 designs. Tailored for your unique needs, it’s where innovation
                                 meets elegance.
@@ -18,31 +34,32 @@ function Footer() {
                         </div>
                         <div className="col-lg-2 col-md-6">
                             <h3 className="text-light mb-4">Services</h3>
-                            <a className="btn btn-link" href="">Architecture</a>
-                            <a className="btn btn-link" href="">3D Animation</a>
-                            <a className="btn btn-link" href="">House Planning</a>
-                            <a className="btn btn-link" href="">Interior Design</a>
-                            <a className="btn btn-link" href="">Construction</a>
+                            {service.map((s,i) => (
+                            <Link className="btn btn-link" to={`/service/${s.id}`}>{s.name}</Link>
+                            ))}
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h3 className="text-light mb-4">Quick Links</h3>
-                            <a className="btn btn-link" href="">About Us</a>
-                            <a className="btn btn-link" href="">Contact Us</a>
-                            <a className="btn btn-link" href="">Our Services</a>
-                            <a className="btn btn-link" href="">Terms & Condition</a>
-                            <a className="btn btn-link" href="">Support</a>
+                            <Link className="btn btn-link" to={`/about`}>About Us</Link>
+                            <Link className="btn btn-link" to={`/contact`}>Contact Us</Link>
+                            <Link className="btn btn-link" to={`/services`}>Our Services</Link>
+                            <Link className="btn btn-link" to={`/`}>Terms & Condition</Link>
+                            <Link className="btn btn-link" to={`/`}>Support</Link>
                         </div>
                         <div className="col-lg-3 col-md-6">
                             <h3 className="text-light mb-4">Address</h3>
                             <p className="mb-2 text-light">
-                                <i className="fa fa-map-marker-alt txt-primary me-3"></i>123 Street,
-                                New York, USA
+                                <i className="fa fa-map-marker-alt txt-primary me-3"></i>
+                                Man Mandir Road, Near Karni Mata Temple, Khaturia Colony, Bikaner 
                             </p>
                             <p className="mb-2 text-light">
-                                <i className="fa fa-phone-alt txt-primary me-3"></i>+012 345 67890
+                                <i className="fa fa-phone-alt txt-primary me-3"></i>+91 90798 67467
                             </p>
                             <p className="mb-2 text-light">
-                                <i className="fa fa-envelope txt-primary me-3"></i>info@example.com
+                                <i className="fa fa-phone-alt txt-primary me-3"></i>+91 94146 04749
+                            </p>
+                            <p className="mb-2 text-light">
+                                <i className="fa fa-envelope txt-primary me-3"></i>info@modularvisionera.com
                             </p>
                             <div className="d-flex pt-2">
                                 <a className="btn btn-square btn-outline-body me-1" href=""
@@ -67,10 +84,10 @@ function Footer() {
                             <div
                                 className="col-md-6 text-center text-md-start mb-3 mb-md-0 text-light"
                             >
-                                &copy; <a href="#">2025 Nanointory</a>, All Right Reserved.
+                                &copy; <Link to={`/`}> 2025 Modular Mision ERA</Link>, All Right Reserved.
                             </div>
                             <div className="col-md-6 text-center text-light text-md-end">
-                                Designed By <a href="#">Ravikant Suthar</a>
+                                Designed By <Link to="/">Ravikant Suthar</Link>
                             </div>
                         </div>
                     </div>

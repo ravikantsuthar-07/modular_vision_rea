@@ -33,24 +33,24 @@ const SliderMain = () => {
 
     return (
         <section>
-            <div class="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
-                <div class="owl-carousel header-carousel position-relative">
+            <div className="container-fluid p-0 pb-5 wow fadeIn" data-wow-delay="0.1s">
+                <div className="owl-carousel header-carousel position-relative">
                     <Slider {...settings}>
                         {sliders.map((slider, i) => (                            
                             <div key={i}>
-                                <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-1.jpg'>">
-                                    <img class="img-fluid" src={`http://localhost:8001/static/sliders/${slider.image}`} alt="Modern Architecture" />
-                                    <div class="owl-carousel-inner">
-                                        <div class="container">
-                                            <div class="row justify-content-start">
-                                                <div class="col-10 col-lg-10">
-                                                    <h2 class="display-4 text-white animated slideInDown">
+                                <div className="owl-carousel-item position-relative" data-dot="<img src='img/carousel-1.jpg'>">
+                                    <img className="img-fluid" src={`/static/sliders/${slider.image}`} alt="Modern Architecture" />
+                                    <div className="owl-carousel-inner">
+                                        <div className="container">
+                                            <div className="row justify-content-start">
+                                                <div className="col-10 col-lg-10">
+                                                    <h2 className="display-4 text-white animated slideInDown">
                                                         {slider.heading}
                                                     </h2>
-                                                    <p class="fs-5 fw-medium text-white mb-4 pb-3">
+                                                    <p className="fs-5 fw-medium text-white mb-4 pb-3">
                                                        {slider.description}
                                                     </p>
-                                                    <Link to={'/'} class="btn btn-inline-body py-3 px-5 animated slideInLeft"> Read More </Link>
+                                                    <Link to={'/'} className="btn btn-inline-body py-3 px-5 animated slideInLeft"> Read More </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -59,20 +59,20 @@ const SliderMain = () => {
                             </div>
                         ))}
                         {/* <div>
-                            <div class="owl-carousel-item position-relative" data-dot="<img src='img/carousel-1.jpg'>">
-                                <img class="img-fluid" src={Secound} alt="Modern Architecture" />
-                                <div class="owl-carousel-inner">
-                                    <div class="container">
-                                        <div class="row justify-content-start">
-                                            <div class="col-10 col-lg-10">
-                                                <h2 class="display-4 text-white animated slideInDown">
+                            <div className="owl-carousel-item position-relative" data-dot="<img src='img/carousel-1.jpg'>">
+                                <img className="img-fluid" src={Secound} alt="Modern Architecture" />
+                                <div className="owl-carousel-inner">
+                                    <div className="container">
+                                        <div className="row justify-content-start">
+                                            <div className="col-10 col-lg-10">
+                                                <h2 className="display-4 text-white animated slideInDown">
                                                     Inspiring Architecture & Interiors
                                                 </h2>
-                                                <p class="fs-5 fw-medium text-white mb-4 pb-3">
+                                                <p className="fs-5 fw-medium text-white mb-4 pb-3">
                                                     Redefining spaces with modern architecture and elegant
                                                     interiors tailored to your vision.
                                                 </p>
-                                                <Link to={'/'} class="btn btn-inline-body py-3 px-5 animated slideInLeft"> Read More </Link>
+                                                <Link to={'/'} className="btn btn-inline-body py-3 px-5 animated slideInLeft"> Read More </Link>
                                             </div>
                                         </div>
                                     </div>

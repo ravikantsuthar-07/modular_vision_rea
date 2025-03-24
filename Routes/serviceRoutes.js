@@ -1,5 +1,5 @@
 import express from 'express';
-import { createServiceController, deleteServiceController, getAdminServiceController, getLastServiceController, getServiceController, getSingleServiceController, updateServiceController, updateSstatusServiceController } from '../Controllers/serviceController.js';
+import { createServiceController, deleteServiceController, getAdminServiceController, getCountServiceController, getLastServiceController, getServiceController, getSingleServiceController, updateServiceController, updateSstatusServiceController } from '../Controllers/serviceController.js';
 import { isAdmin, requireSignIn } from '../Middleware/authMiddleWare.js'; 
 import multer from 'multer';
 import path, { dirname } from 'path'
@@ -38,6 +38,7 @@ router.post('/create', requireSignIn, isAdmin, upload.single('img'), createServi
 router.put('/updateStatus/:id', requireSignIn, isAdmin, updateSstatusServiceController);
 router.put('/update/:id', requireSignIn, isAdmin, upload.single('img'), updateServiceController);
 router.delete('/delete/:id', requireSignIn, isAdmin, deleteServiceController);
+router.get(`/getCountService`, getCountServiceController)
 
 
 export default router; 

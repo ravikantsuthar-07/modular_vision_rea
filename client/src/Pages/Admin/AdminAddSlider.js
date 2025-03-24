@@ -36,21 +36,21 @@ const AdminAddSlider = () => {
     return (
         <AdminLayout>
             <form method='post' onSubmit={handleSlider} encType="multipart/form-data">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
+                <div className="form-row">
+                    <div className="form-group col-md-6">
                         <label for="inputEmail4">Heading</label>
-                        <input type="text" class="form-control" id="inputEmail4" placeholder="Heading" onChange={(e) => setHeading(e.target.value)} />
+                        <input type="text" className="form-control" id="inputEmail4" placeholder="Heading" onChange={(e) => setHeading(e.target.value)} />
                     </div>
-                    <div class="form-group col-md-6">
+                    <div className="form-group col-md-6">
                         <label for="inputPassword4">Describtion</label>
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Descriptions" onChange={(e) => setDescribtion(e.target.value)} />
+                        <input type="text" className="form-control" id="inputPassword4" placeholder="Descriptions" onChange={(e) => setDescribtion(e.target.value)} />
                     </div>
-                    <div class="form-group col-md-6">
+                    <div className="form-group col-md-6">
                         <label for="inputPassword4">image</label>
-                        <input type="file" class="form-control" placeholder="Descriptions" onChange={(e) => setFile(e.target.files[0])} />
+                        <input type="file" className="form-control" placeholder="Descriptions" onChange={(e) => setFile(e.target.files[0])} />
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Add Slider</button>
+                <button type="submit" className="btn btn-primary">Add Slider</button>
             </form>
         </AdminLayout>
     )

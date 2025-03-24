@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Logo from '../assets/img/logo.png';
+import Logo from '../assets/img/logoLogin.png';
 import { useAuth } from '../context/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 const AdminLogin = () => {
     const [email, setEmail] = useState("");
@@ -17,9 +17,9 @@ const AdminLogin = () => {
             if (data?.success) {
                 setAuth({
                     ...auth,
-                    user: data?.result,
+                    user: data?.results,
                     token: data?.token
-                })
+                })                
                 localStorage.setItem('auth', JSON.stringify(data));
                 alert(data?.message);
                 navigate('/admin/dashboard');
@@ -34,13 +34,12 @@ const AdminLogin = () => {
             <div className="container-fluid h-custom">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-md-9 col-lg-6 col-xl-5">
-                        <img src={"https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"} 
-                            className="img-fluid" alt="Sample image" />
+                        <img src={Logo} className="img-fluid" alt="Sample image" />
                     </div>
                     <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                         <form method='post' onSubmit={handleLogin}>
                             <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                                <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+                                <p className="lead fw-normal mb-0 me-3">Login To Admin</p>
                                 
                             </div>
 

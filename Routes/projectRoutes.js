@@ -4,6 +4,7 @@ import {
     deleteProjectController,
     getAdminProjectController,
     getByServiceIdProjectController,
+    getCountProjectController,
     getLastProjectController,
     getProjectController,
     getSingleProjectController,
@@ -38,12 +39,13 @@ const router = express.Router();
 router.get('/get', getProjectController);
 router.get('/getSingle/:id', getSingleProjectController);
 router.get('/getAdmin', requireSignIn, isAdmin, getAdminProjectController);
-router.post('/create', requireSignIn, isAdmin, upload.single('img'), createProjectController)
-router.put(`/updateStatus/:id`, requireSignIn, isAdmin, updateStatusProjectController)
-router.put(`/update/:id`, requireSignIn, isAdmin, upload.single('img'), updateProjectController)
+router.post('/create', requireSignIn, isAdmin, upload.single('img'), createProjectController);
+router.put(`/updateStatus/:id`, requireSignIn, isAdmin, updateStatusProjectController);
+router.put(`/update/:id`, requireSignIn, isAdmin, upload.single('img'), updateProjectController);
 router.delete(`/delete/:id`, requireSignIn, isAdmin, deleteProjectController);
-router.get(`/getByServiceId/:id`, getByServiceIdProjectController)
-router.get(`/lastProject`, getLastProjectController)
+router.get(`/getByServiceId/:id`, getByServiceIdProjectController);
+router.get(`/lastProject`, getLastProjectController);
+router.get(`/getcountProject`, getCountProjectController)
 
 
 export default router

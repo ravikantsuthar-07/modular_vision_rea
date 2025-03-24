@@ -5,12 +5,11 @@ const Header = () => {
           <div className="col-lg-7 px-5 text-start">
             <div className="h-100 d-inline-flex align-items-center py-3 me-3">
               <a className="text-white px-2" href="tel:+0123456789"
-                ><i className="fa fa-phone-alt txt-primary me-2"></i>+012 345 6789</a
-              >
-              <a className="text-white px-2" href="mailto:info@example.com"
-                ><i className="fa fa-envelope-open txt-primary me-2"></i
-                >info@example.com</a
-              >
+                ><i className="fa fa-phone-alt txt-primary me-2"></i>+91 94146 04749</a>
+              <a className="text-white px-2" href="mailto:info@example.com">
+                <i className="fa fa-envelope-open txt-primary me-2"></i>
+                info@example.com
+                </a>
             </div>
           </div>
           <div className="col-lg-5 px-5 text-end">

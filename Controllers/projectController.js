@@ -248,7 +248,7 @@ export const updateProjectController = async (req, res) => {
             });
         }
         const sql = `UPDATE project SET name = ?, category = ?, serviceid = ? , description = ?, type = ?, complete_date = ?, location = ?, image = ? WHERE id = ?`;
-        await DB.query(sql, [name, category, serviceid, description, type, complete_date, location, image, id], (err, results) => {
+        await DB.query(sql, [name, category, serviceid, description, type, complete_date, location, image.filename, id], (err, results) => {
             if (err) {
                 return res.status(500).send({
                     success: false,
@@ -350,6 +350,33 @@ export const getLastProjectController = async (req, res) => {
         return res.status(500).send({
             success: false,
             message: 'Error in Get Last 3 Projects',
+            error
+        });
+    }
+}
+
+export const getCountProjectController = async (req, res) => {
+    try {
+        const sql = `SELECT COUNT(*) as count FROM project`;
+        await DB.query(sql, (err, results) => {
+            if (err) {
+                return res.status(500).send({
+                    success: false,
+                    message: 'Error in Counting Projects',
+                    err
+                });
+            } else {
+                return res.status(200).send({
+                    success: true,
+                    message: 'Count Project Successfuuly',
+                    results
+                });
+            }
+        })
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: 'Error in Counting Projects',
             error
         });
     }

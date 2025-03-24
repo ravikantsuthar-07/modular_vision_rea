@@ -115,14 +115,14 @@ export const loginAuthController = async (req, res) => {
         });
 
 
-        const compare = async (pass, result) => {
-            const match = await comparePassword(pass, result[0].password);
+        const compare = async (pass, results) => {
+            const match = await comparePassword(pass, results[0].password);
             if (match) {
-                const token = await JWT.sign({id: result[0].id }, process.env.JWT_SECRET, {expiresIn: '1d'});
+                const token = await JWT.sign({id: results[0].id }, process.env.JWT_SECRET, {expiresIn: '1d'});
                 return res.status(200).send({
                     success: true,
                     message: 'Login Successfully',
-                    result,
+                    results,
                     token
                 });
             } else {

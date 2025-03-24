@@ -22,32 +22,32 @@ const ProjectePage = () => {
         <Layout>
             <div
                 data-wow-delay="0.1s"
-                class="container-fluid page-header py-5 mb-5 wow fadeIn"
+                className="container-fluid page-header py-5 mb-5 wow fadeIn"
             >
-                <div class="container py-5">
-                    <h1 class="display-1 text-white animated slideInDown">Projects</h1>
+                <div className="container py-5">
+                    <h1 className="display-1 text-white animated slideInDown">Projects</h1>
                     <nav aria-label="breadcrumb animated slideInDown">
-                        <ol class="breadcrumb text-uppercase mb-0">
-                            <li class="breadcrumb-item">
-                                <Link to={'/'} class="text-white" >Home</Link>
+                        <ol className="breadcrumb text-uppercase mb-0">
+                            <li className="breadcrumb-item">
+                                <Link to={'/'} className="text-white" >Home</Link>
                             </li>
-                            <li class="breadcrumb-item txt-primary" aria-current="page">
+                            <li className="breadcrumb-item txt-primary" aria-current="page">
                                 Projects
                             </li>
                         </ol>
                     </nav>
                 </div>
             </div>
-            <section class="py-5">
-                <div class="container">
+            <section className="py-5">
+                <div className="container">
                     <ul
-                        class="nav nav-tabs justify-content-center mb-4"
+                        className="nav nav-tabs justify-content-center mb-4"
                         id="projectTabs"
                         role="tablist"
                     >
-                        <li class="nav-item" role="presentation">
+                        <li className="nav-item" role="presentation">
                             <button
-                                class="nav-link active"
+                                className="nav-link active"
                                 id="all-projects-tab"
                                 data-bs-toggle="tab"
                                 data-bs-target="#all-projects"
@@ -59,9 +59,9 @@ const ProjectePage = () => {
                                 All Projects
                             </button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li className="nav-item" role="presentation">
                             <button
-                                class="nav-link"
+                                className="nav-link"
                                 id="living-room-tab"
                                 data-bs-toggle="tab"
                                 data-bs-target="#living-room"
@@ -73,9 +73,9 @@ const ProjectePage = () => {
                                 Living Rooms
                             </button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li className="nav-item" role="presentation">
                             <button
-                                class="nav-link"
+                                className="nav-link"
                                 id="bedroom-tab"
                                 data-bs-toggle="tab"
                                 data-bs-target="#bedroom"
@@ -87,9 +87,9 @@ const ProjectePage = () => {
                                 Bedrooms
                             </button>
                         </li>
-                        <li class="nav-item" role="presentation">
+                        <li className="nav-item" role="presentation">
                             <button
-                                class="nav-link"
+                                className="nav-link"
                                 id="kitchen-tab"
                                 data-bs-toggle="tab"
                                 data-bs-target="#kitchen"
@@ -103,71 +103,71 @@ const ProjectePage = () => {
                         </li>
                     </ul>
 
-                    <div class="tab-content" id="projectTabsContent">
+                    <div className="tab-content" id="projectTabsContent">
                         <div
-                            class="tab-pane fade show active"
+                            className="tab-pane fade show active"
                             id="all-projects"
                             role="tabpanel"
                             aria-labelledby="all-projects-tab"
                         >
-                            <div class="row g-4">
+                            <div className="row g-4">
                                 {project.map((p, i) => (
-                                    <div class="col-md-4">
-                                        <div class="card border-0 shadow-sm">
+                                    <div className="col-md-4">
+                                        <div className="card border-0 shadow-sm">
                                             <img
                                                 src={`/static/projects/${p.image}`}
-                                                class="card-img-top"
+                                                className="card-img-top"
                                                 alt="Project 1"
                                             />
-                                            <div class="card-body">
-                                                <h5 class="card-title">{p.name}</h5>
-                                                <p class="card-text">
+                                            <div className="card-body">
+                                                <h5 className="card-title">{p.name}</h5>
+                                                <p className="card-text">
                                                     A sleek, stylish living space with contemporary design.
                                                 </p>
                                                 <Link to={`/project/${p.id}`}
-                                                    class="btn btn-inline-body btn-sm"
+                                                    className="btn btn-inline-body btn-sm"
                                                 >View Details</Link>
                                             </div>
                                         </div>
                                     </div>
                                 ))}
 
-                                {/* <div class="col-md-4">
-                                    <div class="card border-0 shadow-sm">
+                                {/* <div className="col-md-4">
+                                    <div className="card border-0 shadow-sm">
                                         <img
                                             src="img/carousel-2.jpg"
-                                            class="card-img-top"
+                                            className="card-img-top"
                                             alt="Project 2"
                                         />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Minimalist Bedroom</h5>
-                                            <p class="card-text">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Minimalist Bedroom</h5>
+                                            <p className="card-text">
                                                 A calming bedroom designed for simplicity and comfort.
                                             </p>
                                             <a
                                                 href="project-details.html?project=2"
-                                                class="btn btn-inline-body btn-sm"
+                                                className="btn btn-inline-body btn-sm"
                                             >View Details</a
                                             >
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="card border-0 shadow-sm">
+                                <div className="col-md-4">
+                                    <div className="card border-0 shadow-sm">
                                         <img
                                             src="img/carousel-3.jpg"
-                                            class="card-img-top"
+                                            className="card-img-top"
                                             alt="Project 3"
                                         />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Elegant Kitchen</h5>
-                                            <p class="card-text">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Elegant Kitchen</h5>
+                                            <p className="card-text">
                                                 A functional kitchen blending modern aesthetics and
                                                 utility.
                                             </p>
                                             <a
                                                 href="project-details.html?project=3"
-                                                class="btn btn-inline-body btn-sm"
+                                                className="btn btn-inline-body btn-sm"
                                             >View Details</a
                                             >
                                         </div>
@@ -177,27 +177,27 @@ const ProjectePage = () => {
                         </div>
 
                         <div
-                            class="tab-pane fade"
+                            className="tab-pane fade"
                             id="living-room"
                             role="tabpanel"
                             aria-labelledby="living-room-tab"
                         >
-                            <div class="row g-4">
-                                <div class="col-md-4">
-                                    <div class="card border-0 shadow-sm">
+                            <div className="row g-4">
+                                <div className="col-md-4">
+                                    <div className="card border-0 shadow-sm">
                                         <img
                                             src="img/carousel-1.jpg"
-                                            class="card-img-top"
+                                            className="card-img-top"
                                             alt="Living Room 1"
                                         />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Contemporary Living Room</h5>
-                                            <p class="card-text">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Contemporary Living Room</h5>
+                                            <p className="card-text">
                                                 A space designed for relaxation and social gatherings.
                                             </p>
                                             <a
                                                 href="project-details.html?project=4"
-                                                class="btn btn-inline-body btn-sm"
+                                                className="btn btn-inline-body btn-sm"
                                             >View Details</a
                                             >
                                         </div>
@@ -207,27 +207,27 @@ const ProjectePage = () => {
                         </div>
 
                         <div
-                            class="tab-pane fade"
+                            className="tab-pane fade"
                             id="bedroom"
                             role="tabpanel"
                             aria-labelledby="bedroom-tab"
                         >
-                            <div class="row g-4">
-                                <div class="col-md-4">
-                                    <div class="card border-0 shadow-sm">
+                            <div className="row g-4">
+                                <div className="col-md-4">
+                                    <div className="card border-0 shadow-sm">
                                         <img
                                             src="img/carousel-2.jpg"
-                                            class="card-img-top"
+                                            className="card-img-top"
                                             alt="Bedroom 1"
                                         />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Luxury Bedroom</h5>
-                                            <p class="card-text">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Luxury Bedroom</h5>
+                                            <p className="card-text">
                                                 A bedroom designed for ultimate relaxation and luxury.
                                             </p>
                                             <a
                                                 href="project-details.html?project=5"
-                                                class="btn btn-inline-body btn-sm"
+                                                className="btn btn-inline-body btn-sm"
                                             >View Details</a
                                             >
                                         </div>
@@ -237,28 +237,28 @@ const ProjectePage = () => {
                         </div>
 
                         <div
-                            class="tab-pane fade"
+                            className="tab-pane fade"
                             id="kitchen"
                             role="tabpanel"
                             aria-labelledby="kitchen-tab"
                         >
-                            <div class="row g-4">
-                                <div class="col-md-4">
-                                    <div class="card border-0 shadow-sm">
+                            <div className="row g-4">
+                                <div className="col-md-4">
+                                    <div className="card border-0 shadow-sm">
                                         <img
                                             src="img/carousel-3.jpg"
-                                            class="card-img-top"
+                                            className="card-img-top"
                                             alt="Kitchen 1"
                                         />
-                                        <div class="card-body">
-                                            <h5 class="card-title">Modern Kitchen</h5>
-                                            <p class="card-text">
+                                        <div className="card-body">
+                                            <h5 className="card-title">Modern Kitchen</h5>
+                                            <p className="card-text">
                                                 A functional and beautiful space for cooking and
                                                 entertaining.
                                             </p>
                                             <a
                                                 href="project-details.html?project=6"
-                                                class="btn btn-inline-body btn-sm"
+                                                className="btn btn-inline-body btn-sm"
                                             >View Details</a
                                             >
                                         </div>

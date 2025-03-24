@@ -1,6 +1,47 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 const Appointment = () => {
+    const [service, setService] = useState([]);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("")
+    const [mobile, setMobile] = useState("")
+    const [serviceId, setServiceId] = useState("")
+    const [message, setMessage] = useState("")
+    const getService = async () => {
+        try {
+            const { data } = await axios.get('/api/v1/service/get');
+            if (data?.success) {
+                setService(data?.results);
+            }
+        } catch (error) {
+            alert(error?.responce?.data?.message);
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const appointmentData = new FormData();
+            appointmentData.append('name', name);
+            appointmentData.append('email', email);
+            appointmentData.append('mobile', mobile);
+            appointmentData.append('service', serviceId);
+            appointmentData.append('message', message);
+            const {data} = await axios.post(`/api/v1/appointment/create`, {name, email, mobile, service: serviceId, message});
+            if (data?.success) {
+                alert(data?.message);
+            }
+        } catch (error) {
+            alert(error?.responce?.message?.data)
+        }
+    }
+
+    useEffect(() => {
+        getService()
+        // eslint-disable-next-line
+    }, []);
+
     return (
         <section>
             <div className="container-xxl py-5">
@@ -23,7 +64,7 @@ const Appointment = () => {
                                     <div className="d-flex">
                                         <div
                                             className="d-flex flex-shrink-0 align-items-center justify-content-center bg-light"
-                                            style={{width: '65px', height: '65px'}}
+                                            style={{ width: '65px', height: '65px' }}
                                         >
                                             <i className="fa fa-2x fa-phone-alt txt-primary"></i>
                                         </div>
@@ -37,7 +78,7 @@ const Appointment = () => {
                                     <div className="d-flex">
                                         <div
                                             className="d-flex flex-shrink-0 align-items-center justify-content-center bg-light"
-                                            style={{width: '65px', height: '65px'}}
+                                            style={{ width: '65px', height: '65px' }}
                                         >
                                             <i className="fa fa-2x fa-envelope-open txt-primary"></i>
                                         </div>
@@ -50,47 +91,53 @@ const Appointment = () => {
                             </div>
                         </div>
                         <div className="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <form id="appointmentForm">
+                            <form method='post' onSubmit={handleSubmit} id="appointmentForm">
                                 <div className="row g-3">
                                     <div className="col-12 col-sm-6">
                                         <input
                                             type="text"
+                                            onChange={(e) => setName(e.target.value)}
                                             className="form-control"
                                             placeholder="Your Name"
-                                            style={{height: '55px'}}
+                                            style={{ height: '55px' }}
                                             required
                                         />
                                     </div>
                                     <div className="col-12 col-sm-6">
                                         <input
                                             type="email"
+                                            onChange={(e) => setEmail(e.target.value)}
                                             className="form-control"
                                             placeholder="Your Email"
-                                            style={{height: '55px'}}
+                                            style={{ height: '55px' }}
                                             required
                                         />
                                     </div>
                                     <div className="col-12 col-sm-6">
                                         <input
                                             type="text"
+                                            onChange={(e) => setMobile(e.target.value)}
                                             className="form-control"
                                             placeholder="Your Mobile"
-                                            style={{height: '55px'}}
+                                            style={{ height: '55px' }}
                                             required
                                         />
                                     </div>
 
                                     <div className="col-12 col-sm-6">
-                                        <select className="form-select" style={{height: '55px'}} required>
+                                        <select className="form-select" style={{ height: '55px' }}
+                                            onChange={(e) => setServiceId(e.target.value)}
+                                            required>
                                             <option value="" disabled selected>Choose Service</option>
-                                            <option value="Interior">Interior</option>
-                                            <option value="Architecture">Architecture</option>
-                                            <option value="Design">Design</option>
+                                            {service.map((s, i) => (
+                                                <option value={s.id}>{s.name}</option>
+                                            ))}
                                         </select>
                                     </div>
 
                                     <div className="col-12">
                                         <textarea
+                                            onChange={(e) => setMessage(e.target.value)}
                                             className="form-control"
                                             rows="7"
                                             placeholder="Message"

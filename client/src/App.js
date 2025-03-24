@@ -21,6 +21,14 @@ import AdminAddProject from './Pages/Admin/AdminAddProject';
 import ProjectePage from './Pages/ProjectePage';
 import ProjectDetailsPage from './Pages/ProjectDetailsPage';
 import ContactPage from './Pages/ContactPage';
+import AdminClients from './Pages/Admin/AdminClients';
+import AdminAddClient from './Pages/Admin/AdminAddClient';
+import AdminEditProject from './Pages/Admin/AdminEditProject';
+import AdminEditClient from './Pages/Admin/AdminEditClient';
+import AdminAddGallery from './Pages/Admin/AdminAddGallery';
+import AdminGallery from './Pages/Admin/AdminGallery';
+import AdminAppointment from './Pages/Admin/AdminAppointment';
+import AdminContact from './Pages/Admin/AdminContact';
 
 function App() {
   return (
@@ -46,7 +54,14 @@ function App() {
         <Route exact path='add_services' element={<AdminAddSercice />} />
         <Route exact path='projects' element={<AdminProjects />} />
         <Route exact path='add_project' element={<AdminAddProject />} />
-
+        <Route exact path='edit_project/:id' element={<AdminEditProject />} />
+        <Route exact path='clients' element={<AdminClients />} />
+        <Route exact path='add_client' element={<AdminAddClient />} />
+        <Route exact path='edit_client/:id' element={<AdminEditClient />} />
+        <Route exact path='add_gallery/:id' element={<AdminAddGallery />} />
+        <Route exact path='gallery/:id' element={<AdminGallery />} />
+        <Route exact path='appointment' element={<AdminAppointment />} />
+        <Route exact path='contact' element={<AdminContact />} />
       </Route>
     </Routes>
   );

@@ -268,3 +268,30 @@ export const deleteServiceController = async (req, res) => {
         });
     }
 }
+
+export const getCountServiceController = async (req, res) => {
+    try {
+        const sql = `SELECT COUNT(*) as count FROM services`;
+        await DB.query(sql, (err, results) => {
+            if (err) {
+                return res.status(500).send({
+                    success: false,
+                    message: 'Error in Counting Service',
+                    err
+                });
+            } else {
+                return res.status(200).send({
+                    success: true,
+                    message: 'Count Serivce Successfuuly',
+                    results
+                });
+            }
+        })
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: 'Error in Counting Service',
+            error
+        });
+    }
+}

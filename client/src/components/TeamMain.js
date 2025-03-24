@@ -1,9 +1,59 @@
-import React from 'react'
-import T1 from '../assets/img/team-1.jpg';
-import T2 from '../assets/img/team-2.jpg';
-import T3 from '../assets/img/team-3.jpg';
-import T4 from '../assets/img/team-4.jpg';
+import React, { useEffect, useState } from 'react'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import axios from 'axios';
 const TeamMain = () => {
+    const settings = {
+        infinite: true,
+        speed: 2000,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    };
+    const [sliders, setSliders] = useState([]);
+const getClients = async () => {
+    try {
+        const {data} = await axios.get(`/api/v1/client/get`);
+        if (data?.success) {
+            setSliders(data?.results)
+        }
+    } catch (error) {
+        alert(error?.responce?.data?.message);
+    }
+}
+
+useEffect(() => {
+    getClients()
+}, [])
     return (
         <section>
             <div className="container-xxl py-5">
@@ -11,119 +61,26 @@ const TeamMain = () => {
                     <div
                         className="text-center mx-auto mb-5 wow fadeInUp"
                         data-wow-delay="0.1s"
-                        style={{maxWidth: "600px"}}
+                        style={{ maxWidth: "600px" }}
                     >
                         <div className="section-title">
-                            <h6>Team Members</h6>
+                            <h6>Our Clients</h6>
                             <h2 className="mb-4">
                                 We Are Creative Architecture Team For Your Dream Home
                             </h2>
                         </div>
                     </div>
-                    <div className="row g-0 team-items">
-                        <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div className="team-item position-relative">
-                                <div className="position-relative">
-                                    <img
-                                        className="img-fluid"
-                                        src={T1}
-                                        alt="Team Member"
-                                    />
-                                    <div className="team-social text-center">
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-facebook-f"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-linkedin-in"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-instagram"></i
-                                        ></a>
+                    <div className='w-3/4 m-aut'>
+                        <div className='mt-20 text-center'>
+                            <Slider {...settings}>
+                                {sliders.map((t, i) => (
+                                    <div className='h-[500px] flex text-black rounded-xl' style={{ overflowY: 'hidden' }}>
+                                        <div className='h-56 rounded-t-xl bg-indigo-500 flex justify-center text-center items-center'>
+                                            <img src={`/static/clients/${t.image}`} alt='template' height={180} />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="bg-light text-center p-4">
-                                    <h3 className="mt-2">John Doe</h3>
-                                    <span>Lead Architect</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div className="team-item position-relative">
-                                <div className="position-relative">
-                                    <img
-                                        className="img-fluid"
-                                        src={T2}
-                                        alt="Team Member"
-                                    />
-                                    <div className="team-social text-center">
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-facebook-f"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-linkedin-in"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-instagram"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div className="bg-light text-center p-4">
-                                    <h3 className="mt-2">James Smith</h3>
-                                    <span>Senior Architect</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <div className="team-item position-relative">
-                                <div className="position-relative">
-                                    <img
-                                        className="img-fluid"
-                                        src={T3}
-                                        alt="Team Member"
-                                    />
-                                    <div className="team-social text-center">
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-facebook-f"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-linkedin-in"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-instagram"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div className="bg-light text-center p-4">
-                                    <h3 className="mt-2">Johnson</h3>
-                                    <span>Project Manager</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                            <div className="team-item position-relative">
-                                <div className="position-relative">
-                                    <img
-                                        className="img-fluid"
-                                        src={T4}
-                                        alt="Team Member"
-                                    />
-                                    <div className="team-social text-center">
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-facebook-f"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-linkedin-in"></i
-                                        ></a>
-                                        <a className="btn btn-square" href=""
-                                        ><i className="fab fa-instagram"></i
-                                        ></a>
-                                    </div>
-                                </div>
-                                <div className="bg-light text-center p-4">
-                                    <h3 className="mt-2">David Brown</h3>
-                                    <span>Design Specialist</span>
-                                </div>
-                            </div>
+                                ))}
+                            </Slider>
                         </div>
                     </div>
                 </div>
