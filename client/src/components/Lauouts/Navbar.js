@@ -8,7 +8,7 @@ function Navbar() {
             <Header />
             <nav className="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
                 <Link to={'/'} className="navbar-brand ms-4 ms-lg-0">
-                    <img className="me-3" src={Logo} alt="logo" width={250} style={{color: '#000'}} />
+                    <img className="me-3" src={Logo} alt="logo" width={200}  />
                 </Link>
                 <button
                     type="button"

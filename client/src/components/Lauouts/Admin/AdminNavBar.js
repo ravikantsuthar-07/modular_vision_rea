@@ -8,7 +8,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useAuth } from '../../../context/auth';
 import { useNavigate } from 'react-router-dom';
-
+import Logo from "../../../assets/img/logo.png";
 
 const AdminNavBar = () => {
     const [auth, setAuth] = useAuth()
@@ -23,7 +23,7 @@ const AdminNavBar = () => {
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
-                <Navbar.Brand href="#">Modular Vision ERA</Navbar.Brand>
+                <Navbar.Brand href="/admin/dashboard"><img src={Logo}  width={250}/></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

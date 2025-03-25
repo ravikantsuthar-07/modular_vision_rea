@@ -70,7 +70,8 @@ const Appointment = () => {
                                         </div>
                                         <div className="ms-4">
                                             <p className="mb-2">Call Us Now</p>
-                                            <h3 className="mb-0">+012 345 6789</h3>
+                                            <h3 className="mb-0">+91 90798 67467</h3>
+                                            <h3 className="mb-0">+91 94146 04749</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +85,7 @@ const Appointment = () => {
                                         </div>
                                         <div className="ms-4">
                                             <p className="mb-2">Mail Us Now</p>
-                                            <h3 className="mb-0">info@example.com</h3>
+                                            <h3 className="mb-0">info@modularvisionera.com</h3>
                                         </div>
                                     </div>
                                 </div>

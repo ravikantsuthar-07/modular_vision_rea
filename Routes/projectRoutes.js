@@ -3,7 +3,9 @@ import {
     createProjectController,
     deleteProjectController,
     getAdminProjectController,
+    getByCategoryProjectController,
     getByServiceIdProjectController,
+    getCategoryProjectController,
     getCountProjectController,
     getLastProjectController,
     getProjectController,
@@ -45,7 +47,9 @@ router.put(`/update/:id`, requireSignIn, isAdmin, upload.single('img'), updatePr
 router.delete(`/delete/:id`, requireSignIn, isAdmin, deleteProjectController);
 router.get(`/getByServiceId/:id`, getByServiceIdProjectController);
 router.get(`/lastProject`, getLastProjectController);
-router.get(`/getcountProject`, getCountProjectController)
+router.get(`/getcountProject`, getCountProjectController);
+router.get(`/getCategoryProject`, getCategoryProjectController)
+router.get(`/getByCategoryProject/:category`, getByCategoryProjectController)
 
 
 export default router

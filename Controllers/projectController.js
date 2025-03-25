@@ -57,7 +57,7 @@ export const getSingleProjectController = async (req, res) => {
 
 export const getAdminProjectController = async (req, res) => {
     try {
-        const sql = `SELECT * FROM project`;
+        const sql = `SELECT project.*, services.name as SName FROM project LEFT JOIN services ON project.serviceid = services.id`;
         await DB.query(sql, (err, results) => {
             if (err) {
                 return res.status(500).send({
@@ -377,6 +377,61 @@ export const getCountProjectController = async (req, res) => {
         return res.status(500).send({
             success: false,
             message: 'Error in Counting Projects',
+            error
+        });
+    }
+}
+
+export const getCategoryProjectController = async (req, res) => {
+    try{
+        const sql = `SELECT DISTINCT category FROM project`;
+        await DB.query(sql, (err, results) => {
+            if (err) {
+                return res.status(500).send({
+                    success: false,
+                    message: 'Error in Getting Projects Category',
+                    err
+                });
+            } else{
+                return res.status(201).send({
+                    success: true,
+                    message: 'Getting Projects Category Successfully',
+                    results
+                });
+            }
+        })
+    } catch (error){
+        return res.status(500).send({
+            success: false,
+            message: 'Error in Getting Projects Category',
+            error
+        });
+    }
+}
+
+export const getByCategoryProjectController = async (req, res) => {
+    try {
+        const category = req.params.category;
+        const sql = `SELECT * FROM project WHERE category = '${category}'`;
+        await DB.query(sql, (err, results) => {
+            if (err) {
+                return res.status(500).send({
+                    success: false,
+                    message: 'Error in Getting Projects By Category',
+                    err 
+                });
+            } else {
+                return res.status(200).send({
+                    success: true,
+                    message: 'Getting Project Successfully',
+                    results
+                });
+            }
+        })
+    } catch (error) {
+        return res.status(500).send({
+            success: false,
+            message: 'Error in Getting Projects By Category',
             error
         });
     }

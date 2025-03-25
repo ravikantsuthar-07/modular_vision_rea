@@ -119,22 +119,23 @@ const ServiceDetailsPage = () => {
                                         </ul>
                                     </div>
 
-                                    { }
-                                    <div className="portfolio-showcase mt-5">
-                                        <h3 className="mb-4">Our Recent Projects</h3>
-                                        <div className="row g-3">
-                                            {project.map((p, i) => (
+                                    {project.length === 0 ? ("") : (
+                                        <div className="portfolio-showcase mt-5">
+                                            <h3 className="mb-4">Our Recent Projects</h3>
+                                            <div className="row g-3">
+                                                {project.map((p, i) => (
 
-                                                <div className="col-md-6" key={i}>
-                                                    <img
-                                                        src={p.image}
-                                                        className="img-fluid rounded-3"
-                                                        alt="Project 1"
-                                                    />
-                                                </div>
-                                            ))}
+                                                    <div className="col-md-6" key={i}>
+                                                        <img
+                                                            src={`/static/projects/${p.image}`}
+                                                            className="img-fluid rounded-3"
+                                                            alt="Project 1"
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
-                                    </div>
+                                    )}
 
                                     {/* <div className="testimonials mt-5">
                                     <h3 className="mb-4">What Our Clients Say</h3>

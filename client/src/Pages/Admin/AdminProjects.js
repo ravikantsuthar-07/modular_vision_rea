@@ -60,7 +60,10 @@ const AdminProjects = () => {
             alert(error?.responce?.data?.message);
         }
     } 
-
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString()
+    };
     useEffect(()=>{
         getProject();
         // eslint-disable-next-line
@@ -92,8 +95,8 @@ const AdminProjects = () => {
                                                     <th scope="row">{i + 1}</th>
                                                     <td>{c.name}</td>
                                                     <td>{c.category}</td>
-                                                    <td>{c.serviceid}</td>
-                                                    <td>{c.complete_date}</td>
+                                                    <td>{c.SName}</td>
+                                                    <td>{formatDate(c.complete_date)}</td>
                                                     <td><img src={`/static/projects/${c.image}`} alt='projectImage' width={100} /></td>
                                                     <td>
                                                         <button type='buttton' className={c.status ? 'btn btn-primary' : 'btn btn-success'} onClick={() => { updateProjectStatus(c.id, c.status) }}>{c.status ? 'Activate' : 'De Activate'}</button>

@@ -26,7 +26,10 @@ const ProjectDetailsPage = () => {
             alert(error?.responce?.data?.message);
         }
     }
-
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString()
+    };
     useEffect(() => {
         getSingleService(id);
         getGalleryImage(id)
@@ -73,7 +76,7 @@ const ProjectDetailsPage = () => {
                                 </p>
                                 <ul className="list-unstyled">
                                     <li><strong>Project Type:</strong> {project[0].type}</li>
-                                    <li><strong>Completion Date:</strong> {project[0].complete_date}</li>
+                                    <li><strong>Completion Date:</strong> {formatDate(project[0].complete_date)}</li>
                                     <li><strong>Location:</strong> {project[0].location}</li>
                                 </ul>
                                 <Link to={`/contact`} className="btn btn-inline-body mt-3">Contact Us</Link>
@@ -82,17 +85,20 @@ const ProjectDetailsPage = () => {
 
                         <hr className="my-5" />
 
-                        <div className="row">
-                            <div className="col-12">
-                                <h2 className="mb-4">Project Gallery</h2>
-                            </div>
-                            {gallery.map((g, i) => (
+                        {gallery.length !== 0 ? (
 
-                                <div className="col-md-4 mb-4">
-                                    <img src={`/static/gallerys/${g.image}`} alt='aaaa' className="img-fluid rounded shadow-sm" />
+                            <div className="row">
+                                <div className="col-12">
+                                    <h2 className="mb-4">Project Gallery</h2>
                                 </div>
-                            ))}
-                        </div>
+                                {gallery.map((g, i) => (
+
+                                    <div className="col-md-4 mb-4">
+                                        <img src={`/static/gallerys/${g.image}`} alt='aaaa' className="img-fluid rounded shadow-sm" />
+                                    </div>
+                                ))}
+                            </div>
+                        ) : ("")}
                     </div>
                 </section>
             </Layout>
