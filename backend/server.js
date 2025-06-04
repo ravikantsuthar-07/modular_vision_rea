@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import bodyParser from 'body-parser';
-
+import cors from 'cors'
 import authRoutes from "./Routes/authRoutes.js";
 import sliderRoutes from './Routes/sliderRoutes.js';
 import factsRoutes from './Routes/factRoutes.js';
@@ -18,6 +18,7 @@ dotenv.config();
 
 const app = express();
 
+app.use(cors("*"))
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
 
