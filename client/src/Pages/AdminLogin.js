@@ -13,7 +13,7 @@ const AdminLogin = () => {
     const handleLogin = async (e) => {
         e.preventDefault()
         try {
-            const { data } = await axios.post('/api/v1/auth/login', { email, password });
+            const { data } = await axios.post('https://modular-vision-rea-backend.onrender.com/api/v1/auth/login', { email, password });
             if (data?.success) {
                 setAuth({
                     ...auth,

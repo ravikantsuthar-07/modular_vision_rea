@@ -10,7 +10,7 @@ const AdminClients = () => {
     const navigate = useNavigate();
     const getClients = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/client/getAdmin`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/client/getAdmin`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -31,7 +31,7 @@ const AdminClients = () => {
             } else {
                 send = 1
             }
-            const { data } = await axios.put(`/api/v1/client/updateStatus/${id}`, { status: send }, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/client/updateStatus/${id}`, { status: send }, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -48,7 +48,7 @@ const AdminClients = () => {
 
     const deleteClient = async (id) => {
         try {
-            const { data } = await axios.delete(`/api/v1/client/delete/${id}`, {
+            const { data } = await axios.delete(`https://modular-vision-rea-backend.onrender.com/api/v1/client/delete/${id}`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -88,7 +88,7 @@ const AdminClients = () => {
                                                 <tr key={i}>
                                                     <th scope="row">{i + 1}</th>
                                                     <td>{c.name}</td>
-                                                    <td><img src={`/static/clients/${c.image}`} alt='clientImage' width={100} /></td>
+                                                    <td><img src={`https://modular-vision-rea-backend.onrender.com/static/clients/${c.image}`} alt='clientImage' width={100} /></td>
                                                     <td>
                                                         <button type='buttton' className={c.status ? 'btn btn-primary' : 'btn btn-success'} onClick={() => { updateClientStatus(c.id, c.status) }}>{c.status ? 'Activate' : 'De Activate'}</button>
                                                         <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/edit_client/${c.id}`)} >Update</button>

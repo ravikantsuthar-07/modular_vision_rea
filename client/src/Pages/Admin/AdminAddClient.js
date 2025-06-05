@@ -17,7 +17,7 @@ const AdminAddClient = () => {
             const clientData = new FormData();
             clientData.append('name', name);
             clientData.append('img', image);
-            const { data } = await axios.post(`/api/v1/client/create`, clientData, {
+            const { data } = await axios.post(`https://modular-vision-rea-backend.onrender.com/api/v1/client/create`, clientData, {
                 headers: {
                     "Authorization": auth.token
                 }

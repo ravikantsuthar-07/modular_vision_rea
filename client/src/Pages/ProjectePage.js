@@ -8,7 +8,7 @@ const ProjectePage = () => {
     const [category, setCategory] = useState([]);
     const gettingProject = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/project/get`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/get`);
             if (data?.success) {
                 setProject(data?.results);
             }
@@ -18,7 +18,7 @@ const ProjectePage = () => {
     }
     const gettingProjectCategory = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/project/getCategoryProject`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/getCategoryProject`);
             if (data?.success) {
                 setCategory(data?.results);
             }
@@ -29,7 +29,7 @@ const ProjectePage = () => {
 
     const changeProject = async (category) => {
         try {
-            const { data } = await axios.get(`/api/v1/project/getByCategoryProject/${category}`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/getByCategoryProject/${category}`);
             if (data?.success) {
                 setProject(data?.results);
             }
@@ -95,7 +95,7 @@ const ProjectePage = () => {
                                     <div className="col-md-4">
                                         <div className="card border-0 shadow-sm">
                                             <img
-                                                src={`/static/projects/${p.image}`}
+                                                src={`https://modular-vision-rea-backend.onrender.com/static/projects/${p.image}`}
                                                 className="card-img-top"
                                                 alt="Project 1"
                                             />

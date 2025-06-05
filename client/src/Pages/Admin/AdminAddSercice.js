@@ -29,7 +29,7 @@ const AdminAddSercice = () => {
             serviceData.append('Decs2', describtion2);
             serviceData.append('img', image);
 
-            const { data } = await axios.post(`/api/v1/service/create`, serviceData, {
+            const { data } = await axios.post(`https://modular-vision-rea-backend.onrender.com/api/v1/service/create`, serviceData, {
                 headers: {
                     "Authorization": auth.token
                 }

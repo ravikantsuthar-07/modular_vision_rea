@@ -8,7 +8,7 @@ const SliderMain = () => {
     const [sliders, setSliders] = useState([])
     const gettingSlider = async () => {
         try {
-            const { data } = await axios.get('/api/v1/slider/get');
+            const { data } = await axios.get('https://modular-vision-rea-backend.onrender.com/api/v1/slider/get');
             if (data?.success) {
                 setSliders(data?.results);
             }
@@ -39,7 +39,7 @@ const SliderMain = () => {
                         {sliders.map((slider, i) => (                            
                             <div key={i}>
                                 <div className="owl-carousel-item position-relative" data-dot="<img src='img/carousel-1.jpg'>">
-                                    <img className="img-fluid" src={`/static/sliders/${slider.image}`} alt="Modern Architecture" />
+                                    <img className="img-fluid" src={`https://modular-vision-rea-backend.onrender.com/static/sliders/${slider.image}`} alt="Modern Architecture" />
                                     <div className="owl-carousel-inner">
                                         <div className="container">
                                             <div className="row justify-content-start">

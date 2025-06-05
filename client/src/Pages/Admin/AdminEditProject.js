@@ -20,7 +20,7 @@ const AdminEditProject = () => {
     const id = params.id;
     const getService = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/service/get`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/get`);
             if (data?.success) {
                 setService(data?.results);
             }
@@ -30,7 +30,7 @@ const AdminEditProject = () => {
     }
     const getProject = async (id) => {
         try {
-            const { data } = await axios.get(`/api/v1/project/getSingle/${id}`)
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/getSingle/${id}`)
             if (data?.success) {
                 setName(data?.results[0]?.name);
                 setCategory(data?.results[0]?.category);
@@ -58,7 +58,7 @@ const AdminEditProject = () => {
             projectData.append('location', location);
             projectData.append('img', image);
 
-            const { data } = await axios.put(`/api/v1/project/update/${id}`, projectData, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/project/update/${id}`, projectData, {
                 headers: {
                     "Authorization": auth.token
                 }

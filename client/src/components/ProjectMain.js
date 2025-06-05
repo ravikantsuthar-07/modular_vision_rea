@@ -5,7 +5,7 @@ const ProjectMain = () => {
     const [project, setProject] = useState([]);
     const gettingProject = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/project/lastProject`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/lastProject`);
             if (data?.success) {
                 setProject(data?.results);
             }
@@ -37,7 +37,7 @@ const ProjectMain = () => {
 
                                 <div className="col-md-4">
                                     <div className="card border-0 shadow-sm">
-                                        <img src={`/static/projects/${p.image}`} className="card-img-top" alt="Project 1" />
+                                        <img src={`https://modular-vision-rea-backend.onrender.com/static/projects/${p.image}`} className="card-img-top" alt="Project 1" />
                                         <div className="card-body">
                                             <h5 className="card-title">{p.name}</h5>
                                             <p className="card-text">

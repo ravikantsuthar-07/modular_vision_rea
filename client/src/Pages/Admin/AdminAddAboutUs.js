@@ -23,7 +23,7 @@ const AdminAddAboutUs = () => {
             aboutData.append('d2', describtion);
             aboutData.append('year', year);
             aboutData.append('img', image);
-            const { data } = await axios.post(`/api/v1/about/create`, aboutData, {
+            const { data } = await axios.post(`https://modular-vision-rea-backend.onrender.com/api/v1/about/create`, aboutData, {
                 headers: {
                     "Authorization": auth.token
                 }

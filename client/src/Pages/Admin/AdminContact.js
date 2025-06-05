@@ -8,7 +8,7 @@ const AdminContact = () => {
     const [auth] = useAuth()
     const getContacts = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/appointment/get`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/appointment/get`, {
                 headers: {
                     "Authorization": auth.token
                 }

@@ -18,7 +18,7 @@ const AdminEditAboutUs = () => {
 
     const getAboutSection = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/about/getSingle/${id}`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/about/getSingle/${id}`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -44,7 +44,7 @@ const AdminEditAboutUs = () => {
             aboutData.append('d2', describtion);
             aboutData.append('year', year);
             aboutData.append('img', image);
-            const { data } = await axios.put(`/api/v1/about/update/${id}`, aboutData, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/about/update/${id}`, aboutData, {
                 headers: {
                     "Authorization": auth.token
                 }

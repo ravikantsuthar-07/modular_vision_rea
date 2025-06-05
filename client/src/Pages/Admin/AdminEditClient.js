@@ -13,7 +13,7 @@ const AdminEditClient = () => {
     const navigate = useNavigate();
     const getClient = async (id) => {
         try {
-            const { data } = await axios.get(`/api/v1/client/getSingle/${id}`,{
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/client/getSingle/${id}`,{
                 headers:{
                     "Authorization": auth.token
                 }
@@ -31,7 +31,7 @@ const AdminEditClient = () => {
             const clientData = new FormData();
             clientData.append('name', name);
             clientData.append('img', image);
-            const { data } = await axios.put(`/api/v1/client/update/${id}`, clientData, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/client/update/${id}`, clientData, {
                 headers: {
                     "Authorization": auth.token
                 }

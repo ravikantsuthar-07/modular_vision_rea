@@ -18,7 +18,7 @@ const AdminAddProject = () => {
     const navigate = useNavigate()
     const getService = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/service/get`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/get`);
             if (data?.success) {
                 setService(data?.results);
             }
@@ -40,7 +40,7 @@ const AdminAddProject = () => {
             projectData.append('location', location);
             projectData.append('img', image);
 
-            const {data} = await axios.post(`/api/v1/project/create`, projectData, {
+            const {data} = await axios.post(`https://modular-vision-rea-backend.onrender.com/api/v1/project/create`, projectData, {
                 headers:{
                     "Authorization": auth.token
                 }

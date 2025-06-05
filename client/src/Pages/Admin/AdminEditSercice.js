@@ -19,7 +19,7 @@ const AdminEditSercice = () => {
 
     const getService = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/service/getSingle/${id}`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/getSingle/${id}`);
             if (data?.success) {
                 setName(data?.results[0].name);
                 setShort(data?.results[0].shortDesc);
@@ -52,7 +52,7 @@ const AdminEditSercice = () => {
             serviceData.append('Decs2', describtion2);
             serviceData.append('img', image);
 
-            const { data } = await axios.put(`/api/v1/service/update/${id}`, serviceData, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/service/update/${id}`, serviceData, {
                 headers:{
                     "Authorization": auth.token
                 }

@@ -10,7 +10,7 @@ const AdminProjects = () => {
     const navigate = useNavigate();
     const getProject = async () => {
         try {
-            const {data} = await axios.get(`/api/v1/project/getAdmin`, {
+            const {data} = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/getAdmin`, {
                 headers: {
                     "Authorization" : auth.token
                 }
@@ -31,7 +31,7 @@ const AdminProjects = () => {
             } else {
                 send = 1
             }
-            const {data} = await axios.put(`/api/v1/project/updateStatus/${id}`, {status: send}, {
+            const {data} = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/project/updateStatus/${id}`, {status: send}, {
                 headers:{
                     "Authorization": auth.token
                 }
@@ -47,7 +47,7 @@ const AdminProjects = () => {
 
     const deleteProject = async (id) => {
         try {
-            const {data} = await axios.delete(`/api/v1/project/delete/${id}`, {
+            const {data} = await axios.delete(`https://modular-vision-rea-backend.onrender.com/api/v1/project/delete/${id}`, {
                 headers:{
                     "Authorization": auth.token
                 }
@@ -97,7 +97,7 @@ const AdminProjects = () => {
                                                     <td>{c.category}</td>
                                                     <td>{c.SName}</td>
                                                     <td>{formatDate(c.complete_date)}</td>
-                                                    <td><img src={`/static/projects/${c.image}`} alt='projectImage' width={100} /></td>
+                                                    <td><img src={`https://modular-vision-rea-backend.onrender.com/static/projects/${c.image}`} alt='projectImage' width={100} /></td>
                                                     <td>
                                                         <button type='buttton' className={c.status ? 'btn btn-primary' : 'btn btn-success'} onClick={() => { updateProjectStatus(c.id, c.status) }}>{c.status ? 'Activate' : 'De Activate'}</button>
                                                         <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/edit_project/${c.id}`)} >Update</button>

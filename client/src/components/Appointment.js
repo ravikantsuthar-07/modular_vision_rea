@@ -10,7 +10,7 @@ const Appointment = () => {
     const [message, setMessage] = useState("")
     const getService = async () => {
         try {
-            const { data } = await axios.get('/api/v1/service/get');
+            const { data } = await axios.get('https://modular-vision-rea-backend.onrender.com/api/v1/service/get');
             if (data?.success) {
                 setService(data?.results);
             }
@@ -28,7 +28,7 @@ const Appointment = () => {
             appointmentData.append('mobile', mobile);
             appointmentData.append('service', serviceId);
             appointmentData.append('message', message);
-            const {data} = await axios.post(`/api/v1/appointment/create`, {name, email, mobile, service: serviceId, message});
+            const {data} = await axios.post(`https://modular-vision-rea-backend.onrender.com/api/v1/appointment/create`, {name, email, mobile, service: serviceId, message});
             if (data?.success) {
                 alert(data?.message);
             }

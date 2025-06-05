@@ -13,7 +13,7 @@ const AdminAboutUs = () => {
 
     const getAboutUsDetails = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/about/get`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/about/get`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -28,7 +28,7 @@ const AdminAboutUs = () => {
 
     const deleteAbout = async (id) => {
         try {
-            const {data} = await axios.delete(`/api/v1/about/delete/${id}`, {
+            const {data} = await axios.delete(`https://modular-vision-rea-backend.onrender.com/api/v1/about/delete/${id}`, {
                 headers:{
                     "Authorization": auth.token
                 }
@@ -75,7 +75,7 @@ const AdminAboutUs = () => {
                                                     <td>{c.decs1}</td>
                                                     <td>{c.decs2}</td>
                                                     <td>{c.year}</td>
-                                                    <td><img src={`/static/abouts/${c.image}`} alt='aboutImage' width={100} /></td>
+                                                    <td><img src={`https://modular-vision-rea-backend.onrender.com/static/abouts/${c.image}`} alt='aboutImage' width={100} /></td>
                                                     <td> 
                                                         <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/edit_about/${c.id}`)} >Update</button>
                                                         <button className='btn btn-danger m-2' onClick={() => deleteAbout(c.id)}>Delete</button>

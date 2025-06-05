@@ -14,7 +14,7 @@ const AdminEditSlider = () => {
     const id = params.id;
     const getSlider = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/slider/getSingleAdmin/${id}`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/slider/getSingleAdmin/${id}`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -38,7 +38,7 @@ const AdminEditSlider = () => {
             sliderData.append('describtion', describtion);
             sliderData.append('img', file);
 
-            const { data } = await axios.put(`/api/v1/slider/update/${id}`, sliderData, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/slider/update/${id}`, sliderData, {
                 headers: {
                     "Authorization": auth.token
                 }

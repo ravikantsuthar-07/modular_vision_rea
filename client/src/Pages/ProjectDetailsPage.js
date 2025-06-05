@@ -10,7 +10,7 @@ const ProjectDetailsPage = () => {
     const [project, setProject] = useState([]);
     const [gallery, setGallery] = useState([]);
     const getSingleService = async (id) => {
-        const { data } = await axios.get(`/api/v1/project/getSingle/${id}`);
+        const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/getSingle/${id}`);
         if (data?.success) {
             setProject(data?.results)
         }
@@ -18,7 +18,7 @@ const ProjectDetailsPage = () => {
 
     const getGalleryImage = async (id) => {
         try {
-            const { data } = await axios.get(`/api/v1/gallery/get/${id}`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/gallery/get/${id}`);
             if (data?.success) {
                 setGallery(data?.results);
             }
@@ -64,7 +64,7 @@ const ProjectDetailsPage = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6">
-                                <img src={`/static/projects/${project[0].image}`} className="img-fluid rounded shadow-sm" alt='Projects images' />
+                                <img src={`https://modular-vision-rea-backend.onrender.com/static/projects/${project[0].image}`} className="img-fluid rounded shadow-sm" alt='Projects images' />
                             </div>
                             <div className="col-md-6">
                                 <h1 className="mb-3">{project[0].name}</h1>
@@ -94,7 +94,7 @@ const ProjectDetailsPage = () => {
                                 {gallery.map((g, i) => (
 
                                     <div className="col-md-4 mb-4">
-                                        <img src={`/static/gallerys/${g.image}`} alt='aaaa' className="img-fluid rounded shadow-sm" />
+                                        <img src={`https://modular-vision-rea-backend.onrender.com/static/gallerys/${g.image}`} alt='aaaa' className="img-fluid rounded shadow-sm" />
                                     </div>
                                 ))}
                             </div>

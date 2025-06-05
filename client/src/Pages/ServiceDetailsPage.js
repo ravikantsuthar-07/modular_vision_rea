@@ -11,20 +11,20 @@ const ServiceDetailsPage = () => {
     const [services, setServices] = useState([]);
     const [project, setProject] = useState([]);
     const getSingleService = async (id) => {
-        const { data } = await axios.get(`/api/v1/service/getSingle/${id}`);
+        const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/getSingle/${id}`);
         if (data?.success) {
             setService(data?.results)
         }
     }
     const getServices = async (id) => {
-        const { data } = await axios.get(`/api/v1/service/get`);
+        const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/get`);
         if (data?.success) {
             setServices(data?.results)
         }
     }
     const getProject = async (id) => {
         try {
-            const { data } = await axios.get(`/api/v1/project/getByServiceId/${id}`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/getByServiceId/${id}`);
             if (data?.success) {
                 setProject(data?.results)
             }
@@ -81,7 +81,7 @@ const ServiceDetailsPage = () => {
                                         <img
                                             // width={'100%'}
                                             height={'20pc'}
-                                            src={`/static/services/${service[0].image}`}
+                                            src={`https://modular-vision-rea-backend.onrender.com/static/services/${service[0].image}`}
                                             className="img-fluid rounded-3"
                                             alt="Interior Design"
                                         />
@@ -127,7 +127,7 @@ const ServiceDetailsPage = () => {
 
                                                     <div className="col-md-6" key={i}>
                                                         <img
-                                                            src={`/static/projects/${p.image}`}
+                                                            src={`https://modular-vision-rea-backend.onrender.com/static/projects/${p.image}`}
                                                             className="img-fluid rounded-3"
                                                             alt="Project 1"
                                                         />

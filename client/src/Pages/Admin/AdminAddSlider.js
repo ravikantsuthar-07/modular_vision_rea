@@ -19,7 +19,7 @@ const AdminAddSlider = () => {
             sliderData.append('describtion', describtion);
             sliderData.append('img', file);
 
-            const { data } = await axios.post('/api/v1/slider/create', sliderData, {
+            const { data } = await axios.post('https://modular-vision-rea-backend.onrender.com/api/v1/slider/create', sliderData, {
                 headers: {
                     "Authorization": auth.token
                 }

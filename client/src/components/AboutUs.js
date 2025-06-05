@@ -6,7 +6,7 @@ const AboutUs = () => {
     const [about, setAbout] = useState([]);
     const getAboutCom = async () => {
         try {
-            const {data} = await axios.get(`/api/v1/about/get`);
+            const {data} = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/about/get`);
             if (data?.success) {
                 setAbout(data?.results[0]);
             }
@@ -52,7 +52,7 @@ const AboutUs = () => {
                         <div className="col-lg-5 wow fadeIn" data-wow-delay="0.1s">
                             <img
                                 className="img-fluid rounded"
-                                src={`/static/abouts/${about.image}`}
+                                src={`https://modular-vision-rea-backend.onrender.com/static/abouts/${about.image}`}
                                 alt="Creative Architecture"
                             />
                         </div>

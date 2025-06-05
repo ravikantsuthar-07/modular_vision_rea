@@ -5,7 +5,7 @@ function Footer() {
         const [service, setService] = useState([]);
         const getService = async () => {
             try {
-                const { data } = await axios.get(`/api/v1/service/getLast`);
+                const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/getLast`);
                 if (data?.success) {
                     setService(data?.results);
                 }

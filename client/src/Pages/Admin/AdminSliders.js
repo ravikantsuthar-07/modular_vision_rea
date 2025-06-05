@@ -12,7 +12,7 @@ const AdminSliders = () => {
 
     const gettingSlider = async () => {
         try {
-            const { data } = await axios.get('/api/v1/slider/getAdmin', {
+            const { data } = await axios.get('https://modular-vision-rea-backend.onrender.com/api/v1/slider/getAdmin', {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -39,7 +39,7 @@ const AdminSliders = () => {
             } else {
                 send = 'inactive';
             }
-            const { data } = await axios.put(`/api/v1/slider/updateStatus/${id}`, { status: send }, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/slider/updateStatus/${id}`, { status: send }, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -55,7 +55,7 @@ const AdminSliders = () => {
 
     const deleteSliders = async (id) => {
         try {
-            const { data } = await axios.delete(`/api/v1/slider/delete/${id}`, {
+            const { data } = await axios.delete(`https://modular-vision-rea-backend.onrender.com/api/v1/slider/delete/${id}`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -87,7 +87,7 @@ const AdminSliders = () => {
                             <th scope="row">{i + 1}</th>
                             <td>{s.heading}</td>
                             <td>{s.description}</td>
-                            <td><img src={`http://localhost:8001/static/sliders/${s.image}`} width={100} height={100} alt='sliders' /></td>
+                            <td><img src={`http://localhost:8001https://modular-vision-rea-backend.onrender.com/static/sliders/${s.image}`} width={100} height={100} alt='sliders' /></td>
                             <td>
                                 <button type='buttton' className={s.status === 'active' ? 'btn btn-success' : 'btn btn-primary'} onClick={() => { updateSliderStatus(s.id, s.status) }}>{s.status === "inactive" ? 'De Activate' : 'Activate'}</button>
                                 <button className='btn btn-primary' onClick={() => navigator(`/admin/edit_slider/${s.id}`)}>Edit</button>

@@ -10,7 +10,7 @@ const AdminServices = () => {
     const navigate = useNavigate();
     const getServices = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/service/getAdmin`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/getAdmin`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -32,7 +32,7 @@ const AdminServices = () => {
                 send = 1;
             }
             
-            const { data } = await axios.put(`/api/v1/service/updateStatus/${id}`, { status: send }, {
+            const { data } = await axios.put(`https://modular-vision-rea-backend.onrender.com/api/v1/service/updateStatus/${id}`, { status: send }, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -49,7 +49,7 @@ const AdminServices = () => {
 
     const deleteService = async (id) => {
         try {
-            const { data } = await axios.delete(`/api/v1/service/delete/${id}`, {
+            const { data } = await axios.delete(`https://modular-vision-rea-backend.onrender.com/api/v1/service/delete/${id}`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -93,7 +93,7 @@ const AdminServices = () => {
                                                     <td>{c.name}</td>
                                                     <td>{c.heading}</td>
                                                     <td>{c.shortDesc}</td>
-                                                    <td><img src={`/static/services/${c.image}`} alt='aboutImage' width={100} /></td>
+                                                    <td><img src={`https://modular-vision-rea-backend.onrender.com/static/services/${c.image}`} alt='aboutImage' width={100} /></td>
                                                     <td>
                                                         <button type='buttton' className={c.status ? 'btn btn-primary' : 'btn btn-success'} onClick={() => { updateServiceStatus(c.id, c.status) }}>{c.status ? 'Activate' : 'De Activate'}</button>
                                                         <button className='btn btn-primary m-2' onClick={() => navigate(`/admin/edit_service/${c.id}`)} >Update</button>

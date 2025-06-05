@@ -15,7 +15,7 @@ const AdminAddGallery = () => {
         try {
             const galleryData = new FormData();
             galleryData.append('img', image);
-            const {data} = await axios.post(`/api/v1/gallery/create/${productId}`, galleryData, {
+            const {data} = await axios.post(`https://modular-vision-rea-backend.onrender.com/api/v1/gallery/create/${productId}`, galleryData, {
                 headers:{
                     "Authorization": auth.token
                 }

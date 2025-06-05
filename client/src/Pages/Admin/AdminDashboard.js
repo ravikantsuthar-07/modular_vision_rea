@@ -12,7 +12,7 @@ const AdminDashboard = () => {
 
     const countPorject = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/project/getcountProject`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/project/getcountProject`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -26,7 +26,7 @@ const AdminDashboard = () => {
     }
     const countSercice = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/service/getcountService`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/service/getcountService`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -40,7 +40,7 @@ const AdminDashboard = () => {
     }
     const countAppointment = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/appointment/getCountAppointment`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/appointment/getCountAppointment`, {
                 headers: {
                     "Authorization": auth.token
                 }
@@ -54,7 +54,7 @@ const AdminDashboard = () => {
     }
     const countConatct = async () => {
         try {
-            const { data } = await axios.get(`/api/v1/appointment/getCountContact`, {
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/appointment/getCountContact`, {
                 headers: {
                     "Authorization": auth.token
                 }

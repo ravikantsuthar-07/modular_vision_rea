@@ -42,7 +42,7 @@ const ClientMain = () => {
     const [sliders, setSliders] = useState([]);
 const getClients = async () => {
     try {
-        const {data} = await axios.get(`/api/v1/client/get`);
+        const {data} = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/client/get`);
         if (data?.success) {
             setSliders(data?.results)
         }
@@ -76,7 +76,7 @@ useEffect(() => {
                                 {sliders.map((t, i) => (
                                     <div className='h-[500px] flex text-black rounded-xl' style={{ overflowY: 'hidden' }}>
                                         <div className='h-56 rounded-t-xl bg-indigo-500 flex justify-center text-center items-center'>
-                                            <img src={`/static/clients/${t.image}`} alt='template' height={180} />
+                                            <img src={`https://modular-vision-rea-backend.onrender.com/static/clients/${t.image}`} alt='template' height={180} />
                                         </div>
                                     </div>
                                 ))}

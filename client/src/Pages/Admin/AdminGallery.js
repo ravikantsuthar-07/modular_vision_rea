@@ -11,7 +11,7 @@ const AdminGallery = () => {
     const [auth] = useAuth();
     const getGalleryImage = async (id) => {
         try {
-            const { data } = await axios.get(`/api/v1/gallery/get/${id}`);
+            const { data } = await axios.get(`https://modular-vision-rea-backend.onrender.com/api/v1/gallery/get/${id}`);
             if (data?.success) {
                 setGallery(data?.results);
             }
@@ -21,7 +21,7 @@ const AdminGallery = () => {
     }
  const deleteGalleryImage = async (id) => {
     try {
-        const {data} = await axios.delete(`/api/v1/gallery/delete/${id}`, {
+        const {data} = await axios.delete(`https://modular-vision-rea-backend.onrender.com/api/v1/gallery/delete/${id}`, {
             headers:{
                 "Authorization" : auth.token
             }
@@ -44,7 +44,7 @@ const AdminGallery = () => {
                     {gallery.map((g, i) => (
                         <div className='col-md-4 col-sm-6 col-lg-4'>
                             <div className="card" style={{ width: "18rem" }}>
-                                <img src={`/static/gallerys/${g.image}`} className="card-img-top" alt="..." />
+                                <img src={`https://modular-vision-rea-backend.onrender.com/static/gallerys/${g.image}`} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <button className="btn btn-danger" onClick={() => deleteGalleryImage(g.id)}>Delete</button>
                                 </div>
